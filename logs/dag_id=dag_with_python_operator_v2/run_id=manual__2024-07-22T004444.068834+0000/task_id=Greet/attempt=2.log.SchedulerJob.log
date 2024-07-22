@@ -1,0 +1,1 @@
+[2024-07-22T00:46:48.011+0000] {task_context_logger.py:104} ERROR - Executor reports task instance <TaskInstance: dag_with_python_operator_v2.Greet manual__2024-07-22T00:44:44.068834+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

@@ -1,0 +1,41 @@
+[2024-07-22T00:44:45.383+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-22T00:44:45.432+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_python_operator_v2.Greet manual__2024-07-22T00:44:44.068834+00:00 [queued]>
+[2024-07-22T00:44:45.444+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_python_operator_v2.Greet manual__2024-07-22T00:44:44.068834+00:00 [queued]>
+[2024-07-22T00:44:45.445+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 6
+[2024-07-22T00:44:45.468+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): Greet> on 2024-07-22 00:44:44.068834+00:00
+[2024-07-22T00:44:45.475+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1216) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-22T00:44:45.477+0000] {standard_task_runner.py:63} INFO - Started process 1217 to run task
+[2024-07-22T00:44:45.478+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_python_operator_v2', 'Greet', 'manual__2024-07-22T00:44:44.068834+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_pythonOperator.py', '--cfg-path', '/tmp/tmp545bcgee']
+[2024-07-22T00:44:45.480+0000] {standard_task_runner.py:91} INFO - Job 37: Subtask Greet
+[2024-07-22T00:44:45.555+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_python_operator_v2.Greet manual__2024-07-22T00:44:44.068834+00:00 [running]> on host eefce25a52e3
+[2024-07-22T00:44:45.694+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_python_operator_v2' AIRFLOW_CTX_TASK_ID='Greet' AIRFLOW_CTX_EXECUTION_DATE='2024-07-22T00:44:44.068834+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-22T00:44:44.068834+00:00'
+[2024-07-22T00:44:45.695+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-22T00:44:45.716+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-22T00:44:45.717+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag_with_pythonOperator.py", line 13, in greet
+    f" and I am {age} years old")
+                 ^^^
+NameError: name 'age' is not defined
+[2024-07-22T00:44:45.740+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_with_python_operator_v2, task_id=Greet, run_id=manual__2024-07-22T00:44:44.068834+00:00, execution_date=20240722T004444, start_date=20240722T004445, end_date=20240722T004445
+[2024-07-22T00:44:45.759+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 37 for task Greet (name 'age' is not defined; 1217)
+[2024-07-22T00:44:45.772+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-22T00:44:45.797+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-22T00:44:45.801+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
