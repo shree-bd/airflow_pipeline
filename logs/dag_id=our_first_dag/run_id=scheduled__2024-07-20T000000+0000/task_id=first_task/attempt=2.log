@@ -1,0 +1,116 @@
+[2024-07-21T23:38:08.278+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-21T23:38:08.303+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: our_first_dag.first_task scheduled__2024-07-20T00:00:00+00:00 [queued]>
+[2024-07-21T23:38:08.313+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: our_first_dag.first_task scheduled__2024-07-20T00:00:00+00:00 [queued]>
+[2024-07-21T23:38:08.314+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 6
+[2024-07-21T23:38:08.333+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): first_task> on 2024-07-20 00:00:00+00:00
+[2024-07-21T23:38:08.339+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=294) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-21T23:38:08.341+0000] {standard_task_runner.py:63} INFO - Started process 295 to run task
+[2024-07-21T23:38:08.340+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'our_first_dag', 'first_task', 'scheduled__2024-07-20T00:00:00+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/our_first_dag.py', '--cfg-path', '/tmp/tmpyv9li6xy']
+[2024-07-21T23:38:08.342+0000] {standard_task_runner.py:91} INFO - Job 8: Subtask first_task
+[2024-07-21T23:38:08.395+0000] {task_command.py:426} INFO - Running <TaskInstance: our_first_dag.first_task scheduled__2024-07-20T00:00:00+00:00 [running]> on host eefce25a52e3
+[2024-07-21T23:38:08.485+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='our_first_dag' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2024-07-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-20T00:00:00+00:00'
+[2024-07-21T23:38:08.486+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-21T23:38:08.500+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-21T23:38:08.501+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'ech0 Hello World, this is the first task to be done']
+[2024-07-21T23:38:08.509+0000] {subprocess.py:86} INFO - Output:
+[2024-07-21T23:38:08.512+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: ech0: command not found
+[2024-07-21T23:38:08.513+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2024-07-21T23:38:08.513+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-21T23:38:08.523+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2024-07-21T23:38:08.529+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=our_first_dag, task_id=first_task, run_id=scheduled__2024-07-20T00:00:00+00:00, execution_date=20240720T000000, start_date=20240721T233808, end_date=20240721T233808
+[2024-07-21T23:38:08.545+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 8 for task first_task (Bash command failed. The command returned a non-zero exit code 127.; 295)
+[2024-07-21T23:38:08.555+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-21T23:38:08.574+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-21T23:38:08.578+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-07-21T23:40:41.346+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-21T23:40:41.394+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: our_first_dag.first_task scheduled__2024-07-20T00:00:00+00:00 [queued]>
+[2024-07-21T23:40:41.408+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: our_first_dag.first_task scheduled__2024-07-20T00:00:00+00:00 [queued]>
+[2024-07-21T23:40:41.409+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 6
+[2024-07-21T23:40:41.429+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): first_task> on 2024-07-20 00:00:00+00:00
+[2024-07-21T23:40:41.437+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'our_first_dag', 'first_task', 'scheduled__2024-07-20T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/our_first_dag.py', '--cfg-path', '/tmp/tmph5nx6wzn']
+[2024-07-21T23:40:41.438+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=336) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-21T23:40:41.440+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask first_task
+[2024-07-21T23:40:41.440+0000] {standard_task_runner.py:63} INFO - Started process 339 to run task
+[2024-07-21T23:40:41.509+0000] {task_command.py:426} INFO - Running <TaskInstance: our_first_dag.first_task scheduled__2024-07-20T00:00:00+00:00 [running]> on host eefce25a52e3
+[2024-07-21T23:40:41.603+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='our_first_dag' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2024-07-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-20T00:00:00+00:00'
+[2024-07-21T23:40:41.604+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-21T23:40:41.622+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-21T23:40:41.623+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'ech0 Hello World, this is the first task to be done']
+[2024-07-21T23:40:41.633+0000] {subprocess.py:86} INFO - Output:
+[2024-07-21T23:40:41.635+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: ech0: command not found
+[2024-07-21T23:40:41.636+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2024-07-21T23:40:41.636+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-21T23:40:41.646+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2024-07-21T23:40:41.653+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=our_first_dag, task_id=first_task, run_id=scheduled__2024-07-20T00:00:00+00:00, execution_date=20240720T000000, start_date=20240721T234041, end_date=20240721T234041
+[2024-07-21T23:40:41.669+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 11 for task first_task (Bash command failed. The command returned a non-zero exit code 127.; 339)
+[2024-07-21T23:40:41.696+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-21T23:40:41.726+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-21T23:40:41.731+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-07-21T23:44:40.399+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-21T23:44:40.487+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: our_first_dag.first_task scheduled__2024-07-20T00:00:00+00:00 [queued]>
+[2024-07-21T23:44:40.505+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: our_first_dag.first_task scheduled__2024-07-20T00:00:00+00:00 [queued]>
+[2024-07-21T23:44:40.506+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 6
+[2024-07-21T23:44:40.529+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): first_task> on 2024-07-20 00:00:00+00:00
+[2024-07-21T23:44:40.538+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=407) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-21T23:44:40.543+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'our_first_dag', 'first_task', 'scheduled__2024-07-20T00:00:00+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/our_first_dag.py', '--cfg-path', '/tmp/tmpphclo5eo']
+[2024-07-21T23:44:40.563+0000] {standard_task_runner.py:91} INFO - Job 19: Subtask first_task
+[2024-07-21T23:44:40.563+0000] {standard_task_runner.py:63} INFO - Started process 411 to run task
+[2024-07-21T23:44:40.666+0000] {task_command.py:426} INFO - Running <TaskInstance: our_first_dag.first_task scheduled__2024-07-20T00:00:00+00:00 [running]> on host eefce25a52e3
+[2024-07-21T23:44:40.817+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='our_first_dag' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2024-07-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-20T00:00:00+00:00'
+[2024-07-21T23:44:40.818+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-21T23:44:40.837+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-21T23:44:40.838+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'ech0 Hello World, this is the first task to be done']
+[2024-07-21T23:44:40.854+0000] {subprocess.py:86} INFO - Output:
+[2024-07-21T23:44:40.855+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: ech0: command not found
+[2024-07-21T23:44:40.856+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2024-07-21T23:44:40.857+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-21T23:44:40.872+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2024-07-21T23:44:40.880+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=our_first_dag, task_id=first_task, run_id=scheduled__2024-07-20T00:00:00+00:00, execution_date=20240720T000000, start_date=20240721T234440, end_date=20240721T234440
+[2024-07-21T23:44:40.897+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 19 for task first_task (Bash command failed. The command returned a non-zero exit code 127.; 411)
+[2024-07-21T23:44:40.919+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-21T23:44:40.930+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

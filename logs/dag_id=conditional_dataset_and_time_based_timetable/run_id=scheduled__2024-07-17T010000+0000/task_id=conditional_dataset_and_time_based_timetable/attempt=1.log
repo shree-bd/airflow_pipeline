@@ -1,0 +1,25 @@
+[2024-07-21T19:03:22.682+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-21T19:03:22.741+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: conditional_dataset_and_time_based_timetable.conditional_dataset_and_time_based_timetable scheduled__2024-07-17T01:00:00+00:00 [queued]>
+[2024-07-21T19:03:22.756+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: conditional_dataset_and_time_based_timetable.conditional_dataset_and_time_based_timetable scheduled__2024-07-17T01:00:00+00:00 [queued]>
+[2024-07-21T19:03:22.757+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-21T19:03:22.788+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): conditional_dataset_and_time_based_timetable> on 2024-07-17 01:00:00+00:00
+[2024-07-21T19:03:22.819+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=215) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-21T19:03:22.851+0000] {standard_task_runner.py:63} INFO - Started process 226 to run task
+[2024-07-21T19:03:22.840+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'conditional_dataset_and_time_based_timetable', 'conditional_dataset_and_time_based_timetable', 'scheduled__2024-07-17T01:00:00+00:00', '--job-id', '6', '--raw', '--subdir', '/home/***/.local/lib/python3.12/site-packages/***/example_dags/example_datasets.py', '--cfg-path', '/tmp/tmpvc17_k85']
+[2024-07-21T19:03:22.876+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask conditional_dataset_and_time_based_timetable
+[2024-07-21T19:03:23.254+0000] {task_command.py:426} INFO - Running <TaskInstance: conditional_dataset_and_time_based_timetable.conditional_dataset_and_time_based_timetable scheduled__2024-07-17T01:00:00+00:00 [running]> on host df84d5140f20
+[2024-07-21T19:03:23.428+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='conditional_dataset_and_time_based_timetable' AIRFLOW_CTX_TASK_ID='conditional_dataset_and_time_based_timetable' AIRFLOW_CTX_EXECUTION_DATE='2024-07-17T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-17T01:00:00+00:00'
+[2024-07-21T19:03:23.432+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-21T19:03:23.434+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-21T19:03:23.435+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'sleep 5']
+[2024-07-21T19:03:23.456+0000] {subprocess.py:86} INFO - Output:
+[2024-07-21T19:03:28.460+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-07-21T19:03:28.462+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-21T19:03:28.584+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1564: RemovedInAirflow3Warning: Passing 'execution_date' to 'TaskInstance.xcom_push()' is deprecated.
+  context["ti"].xcom_push(key=key, value=value, execution_date=execution_date)
+
+[2024-07-21T19:03:28.644+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=conditional_dataset_and_time_based_timetable, task_id=conditional_dataset_and_time_based_timetable, run_id=scheduled__2024-07-17T01:00:00+00:00, execution_date=20240717T010000, start_date=20240721T190322, end_date=20240721T190328
+[2024-07-21T19:03:28.825+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-21T19:03:28.853+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,39 @@
+[2024-07-21T23:44:40.118+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-21T23:44:40.147+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: our_first_dag.first_task scheduled__2024-07-18T00:00:00+00:00 [queued]>
+[2024-07-21T23:44:40.165+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: our_first_dag.first_task scheduled__2024-07-18T00:00:00+00:00 [queued]>
+[2024-07-21T23:44:40.166+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 6
+[2024-07-21T23:44:40.184+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): first_task> on 2024-07-18 00:00:00+00:00
+[2024-07-21T23:44:40.191+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=405) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-21T23:44:40.193+0000] {standard_task_runner.py:63} INFO - Started process 408 to run task
+[2024-07-21T23:44:40.193+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'our_first_dag', 'first_task', 'scheduled__2024-07-18T00:00:00+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/our_first_dag.py', '--cfg-path', '/tmp/tmpj72tls_t']
+[2024-07-21T23:44:40.195+0000] {standard_task_runner.py:91} INFO - Job 17: Subtask first_task
+[2024-07-21T23:44:40.308+0000] {task_command.py:426} INFO - Running <TaskInstance: our_first_dag.first_task scheduled__2024-07-18T00:00:00+00:00 [running]> on host eefce25a52e3
+[2024-07-21T23:44:40.504+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='our_first_dag' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2024-07-18T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-18T00:00:00+00:00'
+[2024-07-21T23:44:40.505+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-21T23:44:40.526+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-07-21T23:44:40.528+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'ech0 Hello World, this is the first task to be done']
+[2024-07-21T23:44:40.537+0000] {subprocess.py:86} INFO - Output:
+[2024-07-21T23:44:40.539+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: ech0: command not found
+[2024-07-21T23:44:40.540+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2024-07-21T23:44:40.541+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-21T23:44:40.569+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2024-07-21T23:44:40.578+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=our_first_dag, task_id=first_task, run_id=scheduled__2024-07-18T00:00:00+00:00, execution_date=20240718T000000, start_date=20240721T234440, end_date=20240721T234440
+[2024-07-21T23:44:40.609+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 17 for task first_task (Bash command failed. The command returned a non-zero exit code 127.; 408)
+[2024-07-21T23:44:40.649+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-21T23:44:40.685+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-21T23:44:40.689+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
